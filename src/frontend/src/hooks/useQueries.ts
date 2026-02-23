@@ -21,10 +21,15 @@ export function useGetPrizes() {
   return useQuery<Prize[]>({
     queryKey: ['prizes'],
     queryFn: async () => {
-      if (!actor) return [];
-      return actor.getPrizesByCategory();
+      if (!actor) {
+        throw new Error('Backend actor not initialized');
+      }
+      const prizes = await actor.getPrizesByCategory();
+      return prizes;
     },
     enabled: !!actor && !isFetching,
+    retry: 3,
+    retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
   });
 }
 

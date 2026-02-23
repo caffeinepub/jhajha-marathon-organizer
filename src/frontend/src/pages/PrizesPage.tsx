@@ -17,7 +17,7 @@ export default function PrizesPage() {
             PRIZES & AWARDS
           </h1>
           <p className="text-xl text-muted-foreground font-semibold max-w-2xl mx-auto">
-            Compete for amazing prizes across multiple categories. Every runner has a chance to win!
+            Compete for amazing cash prizes in the overall category. Every runner has a chance to win!
           </p>
         </div>
 

@@ -2,17 +2,19 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-remove-the-category-grouping-from-the-prizes-display-showing-only-a-flat-list-of-prize-placements-without-category-headers",
-      "featureTitle": "Remove the category grouping from the prizes display, showing only a flat list of prize placements without category headers",
+      "featureId": "feature-replace-the-deployment-qr-code-and-link-with-jhajha-marathon-branding-throughout-the-application-ensuring-the-url-and-qr-code-point-to-the-official-jhajha-marathon-website-or-registration-page",
+      "featureTitle": "Replace the deployment QR code and link with 'Jhajha Marathon' branding throughout the application, ensuring the URL and QR code point to the official Jhajha Marathon website or registration page",
       "files": [
-        "frontend/src/components/PrizesDisplay.tsx"
+        "frontend/src/components/DeploymentInfo.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
         "build-template-react@1.0.0",
         "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
+        "github-export-icp-cli@1.0.0",
+        "qr-code@1.0.0",
+        "camera@1.0.0"
       ],
       "testIds": [
         "REQ-1"
@@ -20,17 +22,21 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-remove-the-more-prizes-to-be-announced-section-from-the-prizes-page",
-      "featureTitle": "Remove the 'more prizes to be announced' section from the prizes page",
+      "featureId": "feature-debug-and-fix-the-prizes-display-functionality-so-that-the-view-prizes-section-loads-correctly-and-shows-all-prize-categories-and-amounts",
+      "featureTitle": "Debug and fix the prizes display functionality so that the 'View Prizes' section loads correctly and shows all prize categories and amounts",
       "files": [
-        "frontend/src/components/PrizesDisplay.tsx"
+        "frontend/src/components/PrizesDisplay.tsx",
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/pages/PrizesPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
         "build-template-react@1.0.0",
         "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
+        "github-export-icp-cli@1.0.0",
+        "qr-code@1.0.0",
+        "camera@1.0.0"
       ],
       "testIds": [
         "REQ-2"

@@ -1,21 +1,14 @@
-import { useQuery } from '@tanstack/react-query';
-import { useActor } from '../hooks/useActor';
 import { Trophy, Award, Medal, Loader2, AlertCircle } from 'lucide-react';
 import type { Prize } from '../backend';
+import { useGetPrizes } from '../hooks/useQueries';
 
 export default function PrizesDisplay() {
-  const { actor, isFetching: actorFetching } = useActor();
+  const { data: allPrizes, isLoading, isError, error } = useGetPrizes();
 
-  const { data: prizes, isLoading, isError } = useQuery<Prize[]>({
-    queryKey: ['prizes'],
-    queryFn: async () => {
-      if (!actor) return [];
-      return actor.getPrizesByCategory();
-    },
-    enabled: !!actor && !actorFetching,
-  });
+  // Filter to show only overall prizes (1st, 2nd, 3rd place)
+  const prizes = allPrizes?.filter(prize => prize.category === 'overall') || [];
 
-  if (isLoading || actorFetching) {
+  if (isLoading) {
     return (
       <div className="flex items-center justify-center py-20">
         <div className="text-center">
@@ -32,7 +25,9 @@ export default function PrizesDisplay() {
         <div className="bg-destructive/10 border-2 border-destructive rounded-2xl p-8 text-center">
           <AlertCircle className="h-12 w-12 text-destructive mx-auto mb-4" />
           <h3 className="text-xl font-black text-destructive mb-2">Failed to Load Prizes</h3>
-          <p className="text-muted-foreground">Please try again later.</p>
+          <p className="text-muted-foreground">
+            {error instanceof Error ? error.message : 'Please try again later.'}
+          </p>
         </div>
       </div>
     );
@@ -53,28 +48,39 @@ export default function PrizesDisplay() {
   }
 
   const getPlacementIcon = (placement: string) => {
-    const lower = placement.toLowerCase();
-    if (lower.includes('1st') || lower.includes('first')) {
+    if (placement === 'firstPlace') {
       return <Trophy className="h-8 w-8" />;
-    } else if (lower.includes('2nd') || lower.includes('second')) {
+    } else if (placement === 'secondPlace') {
       return <Award className="h-8 w-8" />;
-    } else if (lower.includes('3rd') || lower.includes('third')) {
+    } else if (placement === 'thirdPlace') {
       return <Medal className="h-8 w-8" />;
     }
     return <Trophy className="h-8 w-8" />;
   };
 
   const getPlacementColor = (placement: string) => {
-    const lower = placement.toLowerCase();
-    if (lower.includes('1st') || lower.includes('first')) {
+    if (placement === 'firstPlace') {
       return 'from-yellow-400 via-yellow-500 to-yellow-600';
-    } else if (lower.includes('2nd') || lower.includes('second')) {
+    } else if (placement === 'secondPlace') {
       return 'from-gray-300 via-gray-400 to-gray-500';
-    } else if (lower.includes('3rd') || lower.includes('third')) {
+    } else if (placement === 'thirdPlace') {
       return 'from-orange-400 via-orange-500 to-orange-600';
     }
     return 'from-primary via-accent to-primary';
   };
+
+  const getPlacementLabel = (placement: string) => {
+    if (placement === 'firstPlace') return '1st Place';
+    if (placement === 'secondPlace') return '2nd Place';
+    if (placement === 'thirdPlace') return '3rd Place';
+    return placement;
+  };
+
+  // Sort prizes by placement order
+  const sortedPrizes = [...prizes].sort((a, b) => {
+    const order = { firstPlace: 1, secondPlace: 2, thirdPlace: 3 };
+    return (order[a.placement as keyof typeof order] || 999) - (order[b.placement as keyof typeof order] || 999);
+  });
 
   return (
     <div className="max-w-5xl mx-auto">
@@ -95,9 +101,9 @@ export default function PrizesDisplay() {
 
       {/* Prize Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {prizes.map((prize, index) => (
+        {sortedPrizes.map((prize, index) => (
           <div
-            key={index}
+            key={`${prize.placement}-${index}`}
             className="bg-card rounded-2xl shadow-xl overflow-hidden border-2 border-primary/20 hover:shadow-2xl hover:-translate-y-2 transition-all"
           >
             {/* Prize Header */}
@@ -107,14 +113,15 @@ export default function PrizesDisplay() {
                   {getPlacementIcon(prize.placement)}
                 </div>
               </div>
-              <h3 className="text-2xl font-black text-center">{prize.placement}</h3>
+              <h3 className="text-2xl font-black text-center">{getPlacementLabel(prize.placement)}</h3>
             </div>
 
             {/* Prize Body */}
             <div className="p-6">
-              <div>
-                <p className="text-sm font-bold text-muted-foreground mb-1">Prize</p>
-                <p className="text-lg font-semibold text-primary">{prize.description}</p>
+              <div className="text-center">
+                <p className="text-sm font-bold text-muted-foreground mb-2">Prize Amount</p>
+                <p className="text-3xl font-black text-primary mb-2">₹{Number(prize.amount).toLocaleString()}</p>
+                <p className="text-sm text-muted-foreground font-semibold">(Overall Category)</p>
               </div>
             </div>
 

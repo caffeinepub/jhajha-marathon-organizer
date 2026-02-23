@@ -1,11 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Simplify the prizes display by removing category grouping and the "more prizes to be announced" section.
+**Goal:** Update marathon link/QR code branding and fix prizes display functionality.
 
 **Planned changes:**
-- Remove category headers and grouping from the prizes display
-- Display prizes as a flat list showing only placement and amount
-- Remove the "more prizes to be announced" section from the prizes page
+- Replace deployment link and QR code with Jhajha Marathon branding and URL
+- Debug and fix prizes loading issue so all prize categories display correctly
+- Ensure prize data fetches properly from backend and renders without errors
 
-**User-visible outcome:** Users see a cleaner, simplified prizes page showing only the confirmed prize placements (1st: ₹5000, 2nd: ₹3000, 3rd: ₹1000) without category divisions or placeholder text.
+**User-visible outcome:** Users will see the correct Jhajha Marathon link/QR code throughout the application and can successfully view all prize categories (₹5000/₹3000/₹1000) without loading errors.

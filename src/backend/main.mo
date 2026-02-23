@@ -7,8 +7,6 @@ import Time "mo:core/Time";
 import Text "mo:core/Text";
 import Nat "mo:core/Nat";
 
-
-
 actor {
   type AgeCategory = {
     #under18;
@@ -57,7 +55,6 @@ actor {
 
   func defaultPrizes() : Map.Map<Text, Prize> {
     let prizes = Map.empty<Text, Prize>();
-
     prizes.add("firstPlace", {
       placement = "firstPlace";
       description = "1st Place (Overall) ₹5000";
@@ -79,60 +76,89 @@ actor {
       amount = 1000;
     });
 
-    let ageCategoryPrizes = [
-      {
-        placement = "under18Male";
-        description = "Under 18 Male Winner";
-        category = "ageGroup";
-        amount = 1000;
-      },
-      {
-        placement = "under18Female";
-        description = "Under 18 Female Winner";
-        category = "ageGroup";
-        amount = 1000;
-      },
-      {
-        placement = "18to35Male";
-        description = "18-35 Male Winner";
-        category = "ageGroup";
-        amount = 1000;
-      },
-      {
-        placement = "18to35Female";
-        description = "18-35 Female Winner";
-        category = "ageGroup";
-        amount = 1000;
-      },
-      {
-        placement = "36to50Male";
-        description = "36-50 Male Winner";
-        category = "ageGroup";
-        amount = 1000;
-      },
-      {
-        placement = "36to50Female";
-        description = "36-50 Female Winner";
-        category = "ageGroup";
-        amount = 1000;
-      },
-      {
-        placement = "over50Male";
-        description = "Over 50 Male Winner";
-        category = "ageGroup";
-        amount = 1000;
-      },
-      {
-        placement = "over50Female";
-        description = "Over 50 Female Winner";
-        category = "ageGroup";
-        amount = 1000;
-      },
-    ];
+    prizes.add("under18FirstPlace", {
+      placement = "firstPlace";
+      description = "1st Place (Under 18) ₹1500";
+      category = "under18";
+      amount = 1500;
+    });
 
-    for (p in ageCategoryPrizes.values()) {
-      prizes.add(p.placement, p);
-    };
+    prizes.add("under18SecondPlace", {
+      placement = "secondPlace";
+      description = "2nd Place (Under 18) ₹1000";
+      category = "under18";
+      amount = 1000;
+    });
+
+    prizes.add("under18ThirdPlace", {
+      placement = "thirdPlace";
+      description = "3rd Place (Under 18) ₹500";
+      category = "under18";
+      amount = 500;
+    });
+
+    prizes.add("between18And35FirstPlace", {
+      placement = "firstPlace";
+      description = "1st Place (18-35) ₹1500";
+      category = "between18And35";
+      amount = 1500;
+    });
+
+    prizes.add("between18And35SecondPlace", {
+      placement = "secondPlace";
+      description = "2nd Place (18-35) ₹1000";
+      category = "between18And35";
+      amount = 1000;
+    });
+
+    prizes.add("between18And35ThirdPlace", {
+      placement = "thirdPlace";
+      description = "3rd Place (18-35) ₹500";
+      category = "between18And35";
+      amount = 500;
+    });
+
+    prizes.add("between36And50FirstPlace", {
+      placement = "firstPlace";
+      description = "1st Place (36-50) ₹1500";
+      category = "between36And50";
+      amount = 1500;
+    });
+
+    prizes.add("between36And50SecondPlace", {
+      placement = "secondPlace";
+      description = "2nd Place (36-50) ₹1000";
+      category = "between36And50";
+      amount = 1000;
+    });
+
+    prizes.add("between36And50ThirdPlace", {
+      placement = "thirdPlace";
+      description = "3rd Place (36-50) ₹500";
+      category = "between36And50";
+      amount = 500;
+    });
+
+    prizes.add("over50FirstPlace", {
+      placement = "firstPlace";
+      description = "1st Place (Over 50) ₹1500";
+      category = "over50";
+      amount = 1500;
+    });
+
+    prizes.add("over50SecondPlace", {
+      placement = "secondPlace";
+      description = "2nd Place (Over 50) ₹1000";
+      category = "over50";
+      amount = 1000;
+    });
+
+    prizes.add("over50ThirdPlace", {
+      placement = "thirdPlace";
+      description = "3rd Place (Over 50) ₹500";
+      category = "over50";
+      amount = 500;
+    });
 
     prizes;
   };

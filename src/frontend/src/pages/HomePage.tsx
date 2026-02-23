@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { Trophy, UserPlus, Award, Users, Calendar, MapPin } from 'lucide-react';
+import DeploymentInfo from '../components/DeploymentInfo';
 
 export default function HomePage() {
   return (
@@ -41,8 +42,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Deployment Info Section - Share Website */}
+      <DeploymentInfo />
+
       {/* Event Info Section */}
-      <section className="py-16 bg-gradient-to-b from-background to-muted/30">
+      <section className="py-16 bg-gradient-to-b from-muted/30 to-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-2 border-primary/20">
@@ -76,7 +80,7 @@ export default function HomePage() {
       </section>
 
       {/* Why Participate Section */}
-      <section className="py-16 bg-gradient-to-b from-muted/30 to-background">
+      <section className="py-16 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-black text-center mb-12 tracking-tight">
             Why Participate?

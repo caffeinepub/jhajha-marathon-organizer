@@ -1,22 +1,25 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
+  "summary": "Jhajha Marathon web application",
   "architectural_notes": [],
-  "known_issues": [],
-  "isFixRequest": false,
+  "known_issues": [
+    "View prizes section not loading properly"
+  ],
+  "isFixRequest": true,
+  "imageRequirements": "## Edit Images\n- Update to show Jhajha Marathon branding and URL (deployment-qr.dim_400x400.png > jhajha-marathon-qr.dim_400x400.png)",
   "existing_features": [
     {
-      "id": "feature-remove-the-category-grouping-from-the-prizes-display-showing-only-a-flat-list-of-prize-placements-without-category-headers",
-      "title": "Remove the category grouping from the prizes display, showing only a flat list of prize placements without category headers",
+      "id": "feature-replace-the-deployment-qr-code-and-link-with-jhajha-marathon-branding-throughout-the-application-ensuring-the-url-and-qr-code-point-to-the-official-jhajha-marathon-website-or-registration-page",
+      "title": "Replace the deployment QR code and link with 'Jhajha Marathon' branding throughout the application, ensuring the URL and QR code point to the official Jhajha Marathon website or registration page",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-remove-the-more-prizes-to-be-announced-section-from-the-prizes-page",
-      "title": "Remove the 'more prizes to be announced' section from the prizes page",
+      "id": "feature-debug-and-fix-the-prizes-display-functionality-so-that-the-view-prizes-section-loads-correctly-and-shows-all-prize-categories-and-amounts",
+      "title": "Debug and fix the prizes display functionality so that the 'View Prizes' section loads correctly and shows all prize categories and amounts",
       "reqIds": [
         "REQ-2"
       ],
@@ -26,12 +29,12 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Remove category and 'more prizes to be announced' section from prize section",
+      "summary": "Fix view prizes loading issue",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "projectName": "Remove category and 'more prizes' section from prizes display",
+  "projectName": "Jhajha Marathon",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

@@ -1,54 +1,61 @@
 {
   "kind": "build_request",
-  "title": "Remove category and 'more prizes' section from prizes display",
-  "priority": "normal",
+  "title": "Update marathon link and fix prizes loading issue",
+  "projectName": "Jhajha Marathon",
+  "priority": "high",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Remove the category grouping from the prizes display, showing only a flat list of prize placements without category headers",
+      "text": "Replace the deployment QR code and link with 'Jhajha Marathon' branding throughout the application, ensuring the URL and QR code point to the official Jhajha Marathon website or registration page",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-final"
+          "msg-last"
         ],
         "quotes": [
-          "remove category and more prizes to be announced section from prize section"
+          "change link with jhajha marathon"
         ]
       },
       "acceptanceCriteria": [
-        "Prizes are displayed without category groupings or headers",
-        "All prize amounts and placements remain visible",
-        "Layout maintains visual consistency without category sections"
+        "DeploymentInfo component displays 'Jhajha Marathon' link instead of generic deployment URL",
+        "QR code generates correctly for the Jhajha Marathon URL",
+        "Link is copyable and opens the correct destination"
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Remove the 'more prizes to be announced' section from the prizes page",
-      "target": "frontend",
+      "text": "Debug and fix the prizes display functionality so that the 'View Prizes' section loads correctly and shows all prize categories and amounts",
+      "target": "both",
       "source": {
         "messageIds": [
-          "msg-user-final"
+          "msg-last"
         ],
         "quotes": [
-          "remove category and more prizes to be announced section from prize section"
+          "view prizes is not loading kindly update it"
         ]
       },
       "acceptanceCriteria": [
-        "No 'more prizes to be announced' text or section appears on the prizes page",
-        "Prize display shows only confirmed prizes"
+        "PrizesPage loads without errors",
+        "All prize data fetches successfully from backend",
+        "Prize cards display with correct amounts (₹5000/₹3000/₹1000)",
+        "Loading states and error handling work properly"
       ]
     }
   ],
   "constraints": [
-    "Do not modify backend prize data structure",
-    "Preserve existing prize amounts (₹5000, ₹3000, ₹1000)"
+    "Preserve existing prize structure in backend (overall category with ₹5000/₹3000/₹1000)",
+    "Maintain current authentication flow with Internet Identity",
+    "Keep existing registration form functionality intact"
   ],
   "nonGoals": [
-    "Changing prize amounts or structure in the backend",
-    "Modifying registration flow or payment details"
+    "Changing prize amounts or categories",
+    "Modifying registration form fields",
+    "Redesigning the overall layout"
   ],
   "imageRequirements": {
     "required": [],
-    "edits": []
+    "edits": [
+      "Update to show Jhajha Marathon branding and URL (deployment-qr.dim_400x400.png > jhajha-marathon-qr.dim_400x400.png)"
+    ]
   }
 }

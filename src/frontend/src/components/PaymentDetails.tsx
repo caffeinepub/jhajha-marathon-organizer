@@ -30,7 +30,7 @@ export default function PaymentDetails() {
           <div className="flex flex-col items-center space-y-4">
             <div className="bg-white p-4 rounded-2xl shadow-lg border-2 border-primary/20">
               <img
-                src="/assets/generated/phonepe-qr.dim_800x800.png"
+                src="/assets/generated/phonepe-qr.dim_400x400.png"
                 alt="PhonePe Payment QR Code"
                 className="w-64 h-64 object-contain"
               />

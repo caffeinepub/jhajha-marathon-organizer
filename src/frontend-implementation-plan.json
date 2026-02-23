@@ -1,36 +1,53 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Remove category and 'more prizes' section from prizes display",
+  "title": "Update marathon link and fix prizes loading issue",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Remove category grouping from prizes display, showing only a flat list of prize placements",
+      "summary": "Replace deployment QR code and link with Jhajha Marathon branding",
       "acceptanceCriteria": [
-        "Prizes are displayed without category groupings or headers",
-        "All prize amounts and placements remain visible",
-        "Layout maintains visual consistency without category sections"
+        "DeploymentInfo component displays 'Jhajha Marathon' link instead of generic deployment URL",
+        "QR code generates correctly for the Jhajha Marathon URL",
+        "Link is copyable and opens the correct destination"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/PrizesDisplay.tsx",
+          "path": "frontend/src/components/DeploymentInfo.tsx",
           "operation": "modify",
-          "description": "Remove category grouping logic and headers. Display all prizes in a single flat list without category-based organization. Maintain the existing card layout with placement icons and gradient colors for each prize, ensuring all prize amounts (₹5000, ₹3000, ₹1000) and placements remain visible."
+          "description": "Update the deployment URL to point to the official Jhajha Marathon website or registration page. Replace the QR code image reference from 'deployment-qr.dim_400x400.png' to 'jhajha-marathon-qr.dim_400x400.png'. Ensure the URL is copyable and the link opens to the correct Jhajha Marathon destination. Update component text to reflect 'Jhajha Marathon' branding."
+        },
+        {
+          "path": "frontend/public/assets/generated/jhajha-marathon-qr.dim_400x400.png",
+          "operation": "create",
+          "description": "Wire the generated Jhajha Marathon QR code image (frontend/public/assets/generated/jhajha-marathon-qr.dim_400x400.png) as a static asset that the DeploymentInfo component references. This image should encode the official Jhajha Marathon URL."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Remove 'more prizes to be announced' section from prizes page",
+      "summary": "Debug and fix prizes display functionality to load all prize categories correctly",
       "acceptanceCriteria": [
-        "No 'more prizes to be announced' text or section appears on the prizes page",
-        "Prize display shows only confirmed prizes"
+        "PrizesPage loads without errors",
+        "All prize data fetches successfully from backend",
+        "Prize cards display with correct amounts (₹5000/₹3000/₹1000)",
+        "Loading states and error handling work properly"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/PrizesDisplay.tsx",
           "operation": "modify",
-          "description": "Remove any 'more prizes to be announced' section, banner, or placeholder text from the component. Ensure the prizes display shows only the confirmed prizes without any future announcement messaging."
+          "description": "Debug and fix the prizes loading issue. Verify that the useGetPrizesByCategory query hook is correctly fetching data from the backend. Ensure the component properly handles loading states, error states, and successfully displays all prize categories with correct amounts (₹5000 for 1st place, ₹3000 for 2nd place, ₹1000 for 3rd place). Check that the 'overall' category filter is working correctly and all prize cards render with placement-specific icons and colors. Add console logging or error boundaries if needed to diagnose loading failures."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Review and fix the useGetPrizesByCategory query implementation. Ensure the backend actor method getPrizesByCategory() is being called correctly and that the query is properly configured with error handling. Verify that the query key is unique and that React Query caching is working as expected. Check that the actor dependency is properly tracked and queries invalidate when the actor changes."
+        },
+        {
+          "path": "frontend/src/pages/PrizesPage.tsx",
+          "operation": "modify",
+          "description": "Add debugging and error handling to the PrizesPage component. Ensure the PrizesDisplay component is properly receiving the query results and that any loading or error states are visible to the user. Add fallback UI or error messages if prize data fails to load."
         }
       ]
     }

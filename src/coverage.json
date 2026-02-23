@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-23T16:35:20.435Z",
+  "generatedAt": "2026-02-23T17:28:39.330Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -12,34 +12,45 @@
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Remove the category grouping from the prizes display, showing only a flat list of prize placements without category headers",
+        "summary": "Replace the deployment QR code and link with 'Jhajha Marathon' branding throughout the application, ensuring the URL and QR code point to the official Jhajha Marathon website or registration page",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/PrizesDisplay.tsx"
+          "frontend/src/components/DeploymentInfo.tsx",
+          "frontend/public/assets/generated/jhajha-marathon-qr.dim_400x400.png"
         ],
         "matchedFiles": [
-          "frontend/src/components/PrizesDisplay.tsx"
+          "frontend/src/components/DeploymentInfo.tsx",
+          "frontend/public/assets/generated/jhajha-marathon-qr.dim_400x400.png"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Remove the 'more prizes to be announced' section from the prizes page",
+        "summary": "Debug and fix the prizes display functionality so that the 'View Prizes' section loads correctly and shows all prize categories and amounts",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/PrizesDisplay.tsx"
+          "frontend/src/components/PrizesDisplay.tsx",
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/pages/PrizesPage.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/PrizesDisplay.tsx"
+          "frontend/src/components/PrizesDisplay.tsx",
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/pages/PrizesPage.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
+    "backend/main.mo",
     "build-request.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
+    "frontend/public/assets/generated/jhajha-marathon-qr.dim_400x400.png",
+    "frontend/src/components/DeploymentInfo.tsx",
     "frontend/src/components/PrizesDisplay.tsx",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/pages/PrizesPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",
