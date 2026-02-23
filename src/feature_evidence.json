@@ -1,0 +1,78 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-an-address-input-field-to-the-personal-information-section-of-the-registration-form-in-frontend-src-components-registrationform-tsx",
+      "featureTitle": "Add an address input field to the personal information section of the registration form in frontend/src/components/RegistrationForm.tsx",
+      "files": [
+        "frontend/src/components/RegistrationForm.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-remove-the-emergency-contact-section-entirely-from-the-registration-form-in-frontend-src-components-registrationform-tsx",
+      "featureTitle": "Remove the emergency contact section entirely from the registration form in frontend/src/components/RegistrationForm.tsx",
+      "files": [
+        "frontend/src/components/RegistrationForm.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-organizer-contact-details-7069180465-in-the-footer-section-of-frontend-src-components-layout-tsx",
+      "featureTitle": "Add organizer contact details '7069180465' in the footer section of frontend/src/components/Layout.tsx",
+      "files": [
+        "frontend/src/components/Layout.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-new-payment-details-section-on-the-registration-page-or-a-dedicated-payment-information-display-that-shows-upi-id-7069180465-ybl-displays-the-uploaded-phonepe-qr-code-image-and-shows-the-name-raman-kumar-asbariya",
+      "featureTitle": "Create a new Payment Details section on the registration page or a dedicated payment information display that shows UPI ID '7069180465@ybl', displays the uploaded PhonePe QR code image, and shows the name 'Raman Kumar Asbariya'",
+      "files": [
+        "frontend/src/components/PaymentDetails.tsx",
+        "frontend/src/pages/RegisterPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router configuration for home, register, and prizes routes wrapped in a Layout component.",
+  "frontend/src/components/Layout.tsx": "Shared layout component with sticky header navigation, mobile menu, marathon branding, footer with organizer contact details (7069180465) and caffeine.ai attribution.",
+  "frontend/src/pages/HomePage.tsx": "Landing page featuring hero banner, event information cards, why participate section, and call-to-action for registration.",
+  "frontend/src/pages/RegisterPage.tsx": "Registration page with hero banner, payment details section, instructions, and the RegistrationForm component for complete participant registration flow.",
+  "frontend/src/pages/PrizesPage.tsx": "Prizes page displaying trophy icon header and the PrizesDisplay component showing all available prizes.",
+  "frontend/src/components/RegistrationForm.tsx": "Participant registration form with validation for personal information including name, email, phone, address, and age category using React Hook Form and backend integration.",
+  "frontend/src/components/RegistrationSuccess.tsx": "Success confirmation component displaying participant ID, next steps, and navigation to prizes or home page.",
+  "frontend/src/components/PrizesDisplay.tsx": "Displays prizes fetched from backend in card layout with placement-specific colors and icons, handles loading and error states.",
+  "frontend/src/hooks/useQueries.ts": "Custom React Query hooks for fetching participants and prizes, and registering new participants with address field instead of emergency contact.",
+  "frontend/src/index.css": "Global styles with OKLCH color system featuring vibrant orange primary and green accent colors for energetic marathon theme.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom colors, bold typography, enhanced shadows, and animation utilities for sporty design.",
+  "frontend/src/components/PaymentDetails.tsx": "Payment information component displaying PhonePe QR code, UPI ID (7069180465@ybl), and payee name (Raman Kumar Asbariya) with copy-to-clipboard functionality."
+}

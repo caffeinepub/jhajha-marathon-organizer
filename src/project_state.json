@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Website for Jhajha marathon organizer with participant sign-up and winner prizes features",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- PhonePe payment QR code image showing UPI ID 7069180465@ybl for Raman Kumar Asbariya (payment-qr.dim_400x400.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-participant-sign-up-form-that-collects-runner-information-including-name-email-phone-number-age-category-and-emergency-contact-details",
+      "title": "Create a participant sign-up form that collects runner information including name, email, phone number, age category, and emergency contact details",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-prizes-for-marathon-winners-showing-prize-categories-1st-place-2nd-place-3rd-place-and-corresponding-prize-details",
+      "title": "Display prizes for marathon winners showing prize categories (1st place, 2nd place, 3rd place) and corresponding prize details",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-the-website-with-a-sporty-energetic-visual-theme-using-vibrant-colors-like-orange-and-green-bold-typography-and-dynamic-layouts-that-convey-the-excitement-of-marathon-running-and-apply-this-theme-consistently-across-all-pages",
+      "title": "Design the website with a sporty, energetic visual theme using vibrant colors like orange and green, bold typography, and dynamic layouts that convey the excitement of marathon running, and apply this theme consistently across all pages",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-address-input-field-to-the-personal-information-section-of-the-registration-form-in-frontend-src-components-registrationform-tsx",
+      "title": "Add an address input field to the personal information section of the registration form in frontend/src/components/RegistrationForm.tsx",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-emergency-contact-section-entirely-from-the-registration-form-in-frontend-src-components-registrationform-tsx",
+      "title": "Remove the emergency contact section entirely from the registration form in frontend/src/components/RegistrationForm.tsx",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-organizer-contact-details-7069180465-in-the-footer-section-of-frontend-src-components-layout-tsx",
+      "title": "Add organizer contact details '7069180465' in the footer section of frontend/src/components/Layout.tsx",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-new-payment-details-section-on-the-registration-page-or-a-dedicated-payment-information-display-that-shows-upi-id-7069180465-ybl-displays-the-uploaded-phonepe-qr-code-image-and-shows-the-name-raman-kumar-asbariya",
+      "title": "Create a new Payment Details section on the registration page or a dedicated payment information display that shows UPI ID '7069180465@ybl', displays the uploaded PhonePe QR code image, and shows the name 'Raman Kumar Asbariya'",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Sign up form for participants",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Prizes display for winners",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Store participant registration data in the backend with fields for participant ID, name, email, phone, age category, emergency contact, and registration timestamp",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Manage prize information in the backend including prize placement, prize amount or description, and category (overall, age group, etc.)",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Add address field to registration form personal information section",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Remove emergency contact section from registration form",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Add organizer contact details (7069180465) in footer",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Add payment details section with UPI ID 7069180465@ybl, QR Code, and Name: Raman Kumar Asbariya",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Update the backend Participant type in backend/main.mo to include an address field and remove emergencyContactName and emergencyContactPhone fields",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Jhajha Marathon Organizer",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

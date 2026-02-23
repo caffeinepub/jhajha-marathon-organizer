@@ -1,0 +1,79 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Update registration form and add payment section with QR code",
+  "requirements": [
+    {
+      "id": "REQ-6",
+      "summary": "Add address input field to the registration form personal information section",
+      "acceptanceCriteria": [
+        "Address field appears in the registration form after phone number",
+        "Address field has proper validation (required field)",
+        "Address field integrates with the existing React Hook Form validation"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/RegistrationForm.tsx",
+          "operation": "modify",
+          "description": "Add address input field to the personal information section after the phone number field. Integrate with React Hook Form validation using the register function, add required validation rule, and include the address field in the form submission payload that calls the registerParticipant mutation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Remove emergency contact section from the registration form",
+      "acceptanceCriteria": [
+        "Emergency contact name field is removed from the form",
+        "Emergency contact phone field is removed from the form",
+        "Form validation no longer checks emergency contact fields",
+        "Form submission does not include emergency contact data"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/RegistrationForm.tsx",
+          "operation": "modify",
+          "description": "Remove the entire emergency contact section including emergencyContactName and emergencyContactPhone input fields. Remove these fields from the form validation schema and ensure the form submission no longer includes emergency contact data in the registerParticipant mutation call."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Add organizer contact details to the footer",
+      "acceptanceCriteria": [
+        "Footer displays organizer contact number prominently",
+        "Contact information is styled consistently with the existing footer design",
+        "Contact number is displayed on all pages via the Layout component"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Add organizer contact details '7069180465' to the footer section. Display the contact number prominently with appropriate styling that matches the existing footer design. Ensure the contact information is visible on all pages since Layout wraps all routes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Create Payment Details section showing UPI ID, QR code, and payee name",
+      "acceptanceCriteria": [
+        "Payment section displays UPI ID: 7069180465@ybl",
+        "Payment section displays the PhonePe QR code image from frontend/public/assets/generated/payment-qr.png",
+        "Payment section displays payee name: Raman Kumar Asbariya",
+        "Payment section is visually distinct and clearly labeled",
+        "Payment information is easy to read and accessible to users"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PaymentDetails.tsx",
+          "operation": "create",
+          "description": "Create a new PaymentDetails component that displays payment information including UPI ID '7069180465@ybl', the PhonePe QR code image from frontend/public/assets/generated/payment-qr.dim_400x400.png, and the payee name 'Raman Kumar Asbariya'. Structure the component with clear labels and styling that makes the payment information prominent and easy to read."
+        },
+        {
+          "path": "frontend/src/pages/RegisterPage.tsx",
+          "operation": "modify",
+          "description": "Import and integrate the PaymentDetails component into the registration page. Position it prominently on the page, either above or below the RegistrationForm component, so users can see the payment information while completing their registration."
+        }
+      ]
+    }
+  ]
+}
