@@ -6,9 +6,9 @@
   "frontend/src/pages/PrizesPage.tsx": "Prizes page displaying trophy icon header and the PrizesDisplay component showing all available prizes.",
   "frontend/src/components/RegistrationForm.tsx": "Participant registration form with validation for personal information including name, email, phone, address, and age category using React Hook Form and backend integration.",
   "frontend/src/components/RegistrationSuccess.tsx": "Success confirmation component displaying participant ID, next steps, and navigation to prizes or home page.",
-  "frontend/src/components/PrizesDisplay.tsx": "Displays prizes fetched from backend in card layout with placement-specific colors and icons, handles loading and error states.",
+  "frontend/src/components/PrizesDisplay.tsx": "Displays prizes fetched from backend with prominent banner announcing medals for all participants, followed by prize cards in grid layout with placement-specific colors and icons, without category grouping or future announcement sections.",
   "frontend/src/hooks/useQueries.ts": "Custom React Query hooks for fetching participants and prizes, and registering new participants with address field instead of emergency contact.",
   "frontend/src/index.css": "Global styles with OKLCH color system featuring vibrant orange primary and green accent colors for energetic marathon theme.",
   "frontend/tailwind.config.js": "Tailwind configuration extended with custom colors, bold typography, enhanced shadows, and animation utilities for sporty design.",
-  "frontend/src/components/PaymentDetails.tsx": "Payment information component displaying PhonePe QR code, UPI ID (7069180465@ybl), and payee name (Raman Kumar Asbariya) with copy-to-clipboard functionality."
+  "frontend/src/components/PaymentDetails.tsx": "Payment information component displaying entry fee (₹100) banner above PhonePe QR code, UPI ID (7069180465@ybl), and payee name (Raman Kumar Asbariya) with copy-to-clipboard functionality."
 }

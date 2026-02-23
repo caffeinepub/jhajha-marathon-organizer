@@ -6,9 +6,9 @@ import Order "mo:core/Order";
 import Time "mo:core/Time";
 import Text "mo:core/Text";
 import Nat "mo:core/Nat";
-import Migration "migration";
 
-(with migration = Migration.run)
+
+
 actor {
   type AgeCategory = {
     #under18;
@@ -37,14 +37,16 @@ actor {
     };
   };
 
-  var nextParticipantId = 1; // Start from 1
+  var nextParticipantId = 1;
 
+  // Persistent participants storage
   let participants = Map.empty<Nat, Participant>();
 
   type Prize = {
     placement : Text;
     description : Text;
-    category : Text; // Overall, age group, etc.
+    category : Text;
+    amount : Nat;
   };
 
   module Prize {
@@ -53,7 +55,90 @@ actor {
     };
   };
 
-  let prizes = Map.empty<Text, Prize>();
+  func defaultPrizes() : Map.Map<Text, Prize> {
+    let prizes = Map.empty<Text, Prize>();
+
+    prizes.add("firstPlace", {
+      placement = "firstPlace";
+      description = "1st Place (Overall) ₹5000";
+      category = "overall";
+      amount = 5000;
+    });
+
+    prizes.add("secondPlace", {
+      placement = "secondPlace";
+      description = "2nd Place (Overall) ₹3000";
+      category = "overall";
+      amount = 3000;
+    });
+
+    prizes.add("thirdPlace", {
+      placement = "thirdPlace";
+      description = "3rd Place (Overall) ₹1000";
+      category = "overall";
+      amount = 1000;
+    });
+
+    let ageCategoryPrizes = [
+      {
+        placement = "under18Male";
+        description = "Under 18 Male Winner";
+        category = "ageGroup";
+        amount = 1000;
+      },
+      {
+        placement = "under18Female";
+        description = "Under 18 Female Winner";
+        category = "ageGroup";
+        amount = 1000;
+      },
+      {
+        placement = "18to35Male";
+        description = "18-35 Male Winner";
+        category = "ageGroup";
+        amount = 1000;
+      },
+      {
+        placement = "18to35Female";
+        description = "18-35 Female Winner";
+        category = "ageGroup";
+        amount = 1000;
+      },
+      {
+        placement = "36to50Male";
+        description = "36-50 Male Winner";
+        category = "ageGroup";
+        amount = 1000;
+      },
+      {
+        placement = "36to50Female";
+        description = "36-50 Female Winner";
+        category = "ageGroup";
+        amount = 1000;
+      },
+      {
+        placement = "over50Male";
+        description = "Over 50 Male Winner";
+        category = "ageGroup";
+        amount = 1000;
+      },
+      {
+        placement = "over50Female";
+        description = "Over 50 Female Winner";
+        category = "ageGroup";
+        amount = 1000;
+      },
+    ];
+
+    for (p in ageCategoryPrizes.values()) {
+      prizes.add(p.placement, p);
+    };
+
+    prizes;
+  };
+
+  // Persistent prizes storage, now initialized with default prizes
+  let prizes = defaultPrizes();
 
   public shared ({ caller }) func registerParticipant(
     name : Text,
@@ -79,32 +164,22 @@ actor {
     participantId;
   };
 
-  public shared ({ caller }) func addPrize(
-    placement : Text,
-    description : Text,
-    category : Text,
-  ) : async () {
-    let prize : Prize = {
-      placement;
-      description;
-      category;
-    };
-
-    prizes.add(placement, prize);
-  };
-
-  public query ({ caller }) func getAllParticipants() : async [Participant] {
+  public query ({ caller = _ }) func getAllParticipants() : async [Participant] {
     participants.values().toArray().sort(Participant.compareByName);
   };
 
-  public query ({ caller }) func getPrizesByCategory() : async [Prize] {
+  public query ({ caller = _ }) func getPrizesByCategory() : async [Prize] {
     prizes.values().toArray().sort(Prize.compareByCategory);
   };
 
-  public query ({ caller }) func getParticipantById(id : Nat) : async Participant {
+  public query ({ caller = _ }) func getParticipantById(id : Nat) : async Participant {
     switch (participants.get(id)) {
       case (null) { Runtime.trap("Participant not found") };
       case (?participant) { participant };
     };
+  };
+
+  public query ({ caller = _ }) func getAllPrizes() : async [Prize] {
+    prizes.values().toArray();
   };
 };

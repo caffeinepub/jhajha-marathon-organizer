@@ -1,120 +1,54 @@
 {
   "kind": "build_request",
-  "title": "Update registration form and add payment section with QR code",
-  "projectName": "Jhajha Marathon",
+  "title": "Remove category and 'more prizes' section from prizes display",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-6",
-      "text": "Add an address input field to the personal information section of the registration form in frontend/src/components/RegistrationForm.tsx",
+      "id": "REQ-1",
+      "text": "Remove the category grouping from the prizes display, showing only a flat list of prize placements without category headers",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-10"
+          "msg-user-final"
         ],
         "quotes": [
-          "Add address input box in personal information"
+          "remove category and more prizes to be announced section from prize section"
         ]
       },
       "acceptanceCriteria": [
-        "Address field appears in the registration form after phone number",
-        "Address field has proper validation (required field)",
-        "Address field integrates with the existing React Hook Form validation"
+        "Prizes are displayed without category groupings or headers",
+        "All prize amounts and placements remain visible",
+        "Layout maintains visual consistency without category sections"
       ]
     },
     {
-      "id": "REQ-7",
-      "text": "Remove the emergency contact section entirely from the registration form in frontend/src/components/RegistrationForm.tsx",
+      "id": "REQ-2",
+      "text": "Remove the 'more prizes to be announced' section from the prizes page",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-10"
+          "msg-user-final"
         ],
         "quotes": [
-          "remove emergency contact section"
+          "remove category and more prizes to be announced section from prize section"
         ]
       },
       "acceptanceCriteria": [
-        "Emergency contact name field is removed from the form",
-        "Emergency contact phone field is removed from the form",
-        "Form validation no longer checks emergency contact fields",
-        "Form submission does not include emergency contact data"
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "text": "Update the backend Participant type in backend/main.mo to include an address field and remove emergencyContactName and emergencyContactPhone fields",
-      "target": "backend",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ],
-        "quotes": [
-          "Add address input box in personal information",
-          "remove emergency contact section"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Participant type includes address: Text field",
-        "Participant type no longer includes emergencyContactName or emergencyContactPhone",
-        "registerParticipant function accepts address parameter",
-        "registerParticipant function does not accept emergency contact parameters"
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "text": "Add organizer contact details '7069180465' in the footer section of frontend/src/components/Layout.tsx",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ],
-        "quotes": [
-          "Add contact details of organizer i.e., 7069180465 in footer"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Footer displays organizer contact number prominently",
-        "Contact information is styled consistently with the existing footer design",
-        "Contact number is displayed on all pages via the Layout component"
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "text": "Create a new Payment Details section on the registration page or a dedicated payment information display that shows UPI ID '7069180465@ybl', displays the uploaded PhonePe QR code image, and shows the name 'Raman Kumar Asbariya'",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ],
-        "quotes": [
-          "Add Payment details section add details as UPI id - 7069180465@ybl , Add QR Code , Name - Raman Kumar Asbariya"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Payment section displays UPI ID: 7069180465@ybl",
-        "Payment section displays the PhonePe QR code image from frontend/public/assets/generated/payment-qr.png",
-        "Payment section displays payee name: Raman Kumar Asbariya",
-        "Payment section is visually distinct and clearly labeled",
-        "Payment information is easy to read and accessible to users"
+        "No 'more prizes to be announced' text or section appears on the prizes page",
+        "Prize display shows only confirmed prizes"
       ]
     }
   ],
   "constraints": [
-    "Do not modify frontend/src/hooks/useInternetIdentity.ts or frontend/src/hooks/useActor.ts",
-    "Do not modify frontend/src/main.tsx or frontend/src/components/ui components",
-    "Maintain the existing single-actor backend architecture in backend/main.mo"
+    "Do not modify backend prize data structure",
+    "Preserve existing prize amounts (₹5000, ₹3000, ₹1000)"
   ],
   "nonGoals": [
-    "Implementing actual payment processing or validation",
-    "Integrating with PhonePe API or payment gateway",
-    "Adding payment confirmation or receipt generation",
-    "Modifying the prizes display or homepage content"
+    "Changing prize amounts or structure in the backend",
+    "Modifying registration flow or payment details"
   ],
   "imageRequirements": {
-    "required": [
-      "PhonePe payment QR code image showing UPI ID 7069180465@ybl for Raman Kumar Asbariya (payment-qr.dim_400x400.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }

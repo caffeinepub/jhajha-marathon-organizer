@@ -78,6 +78,22 @@ export default function PrizesDisplay() {
 
   return (
     <div className="max-w-5xl mx-auto">
+      {/* All Participants Medal Banner */}
+      <div className="mb-12 bg-gradient-to-r from-accent via-primary to-accent rounded-2xl shadow-2xl overflow-hidden border-2 border-primary">
+        <div className="bg-white/10 backdrop-blur-sm p-8 text-center">
+          <div className="flex items-center justify-center mb-4">
+            <Medal className="h-12 w-12 text-white animate-pulse" />
+          </div>
+          <h3 className="text-3xl font-black text-white mb-3">
+            🏅 Medals for All Participants! 🏅
+          </h3>
+          <p className="text-lg font-bold text-white/90 max-w-2xl mx-auto">
+            Every participant who completes the marathon will receive a finisher's medal to celebrate their achievement!
+          </p>
+        </div>
+      </div>
+
+      {/* Prize Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {prizes.map((prize, index) => (
           <div
@@ -96,11 +112,6 @@ export default function PrizesDisplay() {
 
             {/* Prize Body */}
             <div className="p-6">
-              <div className="mb-4">
-                <p className="text-sm font-bold text-muted-foreground mb-1">Category</p>
-                <p className="text-lg font-black text-foreground">{prize.category}</p>
-              </div>
-
               <div>
                 <p className="text-sm font-bold text-muted-foreground mb-1">Prize</p>
                 <p className="text-lg font-semibold text-primary">{prize.description}</p>
@@ -117,16 +128,6 @@ export default function PrizesDisplay() {
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Additional Info */}
-      <div className="mt-12 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-2xl p-8 text-center border-2 border-primary/20">
-        <h3 className="text-2xl font-black mb-4">More Prizes to be Announced!</h3>
-        <p className="text-muted-foreground font-semibold">
-          Additional prizes and special awards will be revealed closer to the event date.
-          <br />
-          Register now to be eligible for all prizes!
-        </p>
       </div>
     </div>
   );

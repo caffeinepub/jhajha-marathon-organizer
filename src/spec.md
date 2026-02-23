@@ -1,13 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Update the registration form to collect address instead of emergency contact, add organizer contact in footer, and display payment details with QR code.
+**Goal:** Simplify the prizes display by removing category grouping and the "more prizes to be announced" section.
 
 **Planned changes:**
-- Add address input field to the registration form personal information section
-- Remove emergency contact section (name and phone fields) from registration form
-- Update backend Participant type to include address and remove emergency contact fields
-- Add organizer contact number (7069180465) to the footer
-- Create payment details section displaying UPI ID (7069180465@ybl), PhonePe QR code, and payee name (Raman Kumar Asbariya)
+- Remove category headers and grouping from the prizes display
+- Display prizes as a flat list showing only placement and amount
+- Remove the "more prizes to be announced" section from the prizes page
 
-**User-visible outcome:** Users can register with their address instead of emergency contact, view organizer contact in footer, and see payment information with QR code for completing registration payment.
+**User-visible outcome:** Users see a cleaner, simplified prizes page showing only the confirmed prize placements (1st: ₹5000, 2nd: ₹3000, 3rd: ₹1000) without category divisions or placeholder text.

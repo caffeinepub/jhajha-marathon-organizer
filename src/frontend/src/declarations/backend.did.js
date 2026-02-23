@@ -28,11 +28,12 @@ export const Prize = IDL.Record({
   'placement' : IDL.Text,
   'description' : IDL.Text,
   'category' : IDL.Text,
+  'amount' : IDL.Nat,
 });
 
 export const idlService = IDL.Service({
-  'addPrize' : IDL.Func([IDL.Text, IDL.Text, IDL.Text], [], []),
   'getAllParticipants' : IDL.Func([], [IDL.Vec(Participant)], ['query']),
+  'getAllPrizes' : IDL.Func([], [IDL.Vec(Prize)], ['query']),
   'getParticipantById' : IDL.Func([IDL.Nat], [Participant], ['query']),
   'getPrizesByCategory' : IDL.Func([], [IDL.Vec(Prize)], ['query']),
   'registerParticipant' : IDL.Func(
@@ -65,11 +66,12 @@ export const idlFactory = ({ IDL }) => {
     'placement' : IDL.Text,
     'description' : IDL.Text,
     'category' : IDL.Text,
+    'amount' : IDL.Nat,
   });
   
   return IDL.Service({
-    'addPrize' : IDL.Func([IDL.Text, IDL.Text, IDL.Text], [], []),
     'getAllParticipants' : IDL.Func([], [IDL.Vec(Participant)], ['query']),
+    'getAllPrizes' : IDL.Func([], [IDL.Vec(Prize)], ['query']),
     'getParticipantById' : IDL.Func([IDL.Nat], [Participant], ['query']),
     'getPrizesByCategory' : IDL.Func([], [IDL.Vec(Prize)], ['query']),
     'registerParticipant' : IDL.Func(

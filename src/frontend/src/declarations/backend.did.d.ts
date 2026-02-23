@@ -27,11 +27,12 @@ export interface Prize {
   'placement' : string,
   'description' : string,
   'category' : string,
+  'amount' : bigint,
 }
 export type Time = bigint;
 export interface _SERVICE {
-  'addPrize' : ActorMethod<[string, string, string], undefined>,
   'getAllParticipants' : ActorMethod<[], Array<Participant>>,
+  'getAllPrizes' : ActorMethod<[], Array<Prize>>,
   'getParticipantById' : ActorMethod<[bigint], Participant>,
   'getPrizesByCategory' : ActorMethod<[], Array<Prize>>,
   'registerParticipant' : ActorMethod<

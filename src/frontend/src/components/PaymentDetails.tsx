@@ -1,4 +1,4 @@
-import { CreditCard, QrCode, User } from 'lucide-react';
+import { CreditCard, QrCode, User, IndianRupee } from 'lucide-react';
 
 export default function PaymentDetails() {
   return (
@@ -14,12 +14,23 @@ export default function PaymentDetails() {
           </p>
         </div>
 
+        {/* Entry Fee Banner */}
+        <div className="mb-8 bg-gradient-to-r from-primary via-accent to-primary rounded-xl shadow-lg overflow-hidden border-2 border-primary">
+          <div className="bg-white/10 backdrop-blur-sm p-6 text-center">
+            <div className="flex items-center justify-center space-x-3 mb-2">
+              <IndianRupee className="h-8 w-8 text-white" />
+              <h3 className="text-4xl font-black text-white">₹100</h3>
+            </div>
+            <p className="text-lg font-bold text-white/90">Entry Fee per Participant</p>
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* QR Code Section */}
           <div className="flex flex-col items-center space-y-4">
             <div className="bg-white p-4 rounded-2xl shadow-lg border-2 border-primary/20">
               <img
-                src="/assets/generated/payment-qr.dim_400x400.png"
+                src="/assets/generated/phonepe-qr.dim_800x800.png"
                 alt="PhonePe Payment QR Code"
                 className="w-64 h-64 object-contain"
               />

@@ -102,6 +102,7 @@ export interface Prize {
     placement: string;
     description: string;
     category: string;
+    amount: bigint;
 }
 export type Time = bigint;
 export enum AgeCategory {
@@ -111,8 +112,8 @@ export enum AgeCategory {
     between36And50 = "between36And50"
 }
 export interface backendInterface {
-    addPrize(placement: string, description: string, category: string): Promise<void>;
     getAllParticipants(): Promise<Array<Participant>>;
+    getAllPrizes(): Promise<Array<Prize>>;
     getParticipantById(id: bigint): Promise<Participant>;
     getPrizesByCategory(): Promise<Array<Prize>>;
     registerParticipant(name: string, address: string, email: string, phone: string, ageCategory: AgeCategory): Promise<bigint>;
@@ -120,20 +121,6 @@ export interface backendInterface {
 import type { AgeCategory as _AgeCategory, Participant as _Participant, Time as _Time } from "./declarations/backend.did.d.ts";
 export class Backend implements backendInterface {
     constructor(private actor: ActorSubclass<_SERVICE>, private _uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, private _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, private processError?: (error: unknown) => never){}
-    async addPrize(arg0: string, arg1: string, arg2: string): Promise<void> {
-        if (this.processError) {
-            try {
-                const result = await this.actor.addPrize(arg0, arg1, arg2);
-                return result;
-            } catch (e) {
-                this.processError(e);
-                throw new Error("unreachable");
-            }
-        } else {
-            const result = await this.actor.addPrize(arg0, arg1, arg2);
-            return result;
-        }
-    }
     async getAllParticipants(): Promise<Array<Participant>> {
         if (this.processError) {
             try {
@@ -146,6 +133,20 @@ export class Backend implements backendInterface {
         } else {
             const result = await this.actor.getAllParticipants();
             return from_candid_vec_n1(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getAllPrizes(): Promise<Array<Prize>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getAllPrizes();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getAllPrizes();
+            return result;
         }
     }
     async getParticipantById(arg0: bigint): Promise<Participant> {

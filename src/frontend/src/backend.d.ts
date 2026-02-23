@@ -20,6 +20,7 @@ export interface Prize {
     placement: string;
     description: string;
     category: string;
+    amount: bigint;
 }
 export type Time = bigint;
 export enum AgeCategory {
@@ -29,8 +30,8 @@ export enum AgeCategory {
     between36And50 = "between36And50"
 }
 export interface backendInterface {
-    addPrize(placement: string, description: string, category: string): Promise<void>;
     getAllParticipants(): Promise<Array<Participant>>;
+    getAllPrizes(): Promise<Array<Prize>>;
     getParticipantById(id: bigint): Promise<Participant>;
     getPrizesByCategory(): Promise<Array<Prize>>;
     registerParticipant(name: string, address: string, email: string, phone: string, ageCategory: AgeCategory): Promise<bigint>;
